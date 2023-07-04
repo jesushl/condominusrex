@@ -26,7 +26,12 @@ class Person(models.Model):
 class Habitational_Area(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=120)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    location = models.ForeignKey(
+        Location,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     def __str__(self):
         return f"{self.name}"
 
@@ -34,7 +39,12 @@ class Habitational_Area(models.Model):
 class Home(models.Model):
     id = models.BigAutoField(primary_key=True)
     contact_person = models.ForeignKey(Person, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    location = models.ForeignKey(
+        Location,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
     description = models.CharField(max_length=200)
     number = models.IntegerField(null=True)
     habitational_area = models.ForeignKey(

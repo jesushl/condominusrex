@@ -1,0 +1,15 @@
+{% if habitational_area %}
+    <h1>
+        {% habitational_area.name %}
+    </h1>    
+    {% if common_areas %}
+        {% for common_area in common_areas %}
+            <li> 
+                <a href="/common_areas/{{common_area.id}}">
+                    {{common_area.name}}
+                </a>
+            </li>
+        {% endfor %}
+    {% endif %}
+
+{% endif %}
