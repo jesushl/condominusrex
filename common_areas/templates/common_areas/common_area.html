@@ -1,0 +1,7 @@
+<h1>
+    {{common_area.name}}
+</h1>
+ Horario: {{ common_area.availability_starts }} - {{ common_area.availability_stop }}
+<br>
+ Zona Habitacional: <a href= {% url 'habitational_area' common_area.habitational_area.id %}>{{ common_area.habitational_area.name }}
+ 
