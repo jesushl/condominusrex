@@ -1,15 +1,26 @@
-{% if habitational_area %}
-    <h1>
-        {{habitational_area.name }}
-    </h1>    
-    {% if common_areas %}
-        {% for common_area in common_areas %}
-            <li> 
-                <a href="/common_areas/{{common_area.id}}">
-                    {{common_area.name}}
-                </a>
-            </li>
-        {% endfor %}
-    {% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Habitational Area</title>
 
-{% endif %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    {% if habitational_area %}
+        <h1>
+            {{habitational_area.name }}
+        </h1>    
+        {% if common_areas %}
+            {% for common_area in common_areas %}
+                <li> 
+                    <a href={% url 'common_area' common_area.id %}>
+                        {{common_area.name}}
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</body>
+</html>
