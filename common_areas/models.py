@@ -70,3 +70,14 @@ class Common_Area(models.Model):
     def __str__(self):
         return f"{self.habitational_area.name}: {self.name}"
     
+class CommonAreaReservation(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    common_area = models.ForeignKey(
+        Common_Area,
+        on_delete=models.PROTECT
+    )
+    person = models.ForeignKey(
+        Person,
+        on_delete=models.PROTECT
+    )
+    reservation_date = models.DateField(blank=True, null=True)

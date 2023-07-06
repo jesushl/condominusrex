@@ -1,6 +1,13 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.http import Http404
-from .models import Common_Area, Person, Location, Habitational_Area, Home
+from .models import (
+    Common_Area,
+    Person,
+    Location,
+    Habitational_Area,
+    Home,
+    CommonAreaReservation
+)
 
 # Create your views here.
 def index(request):
@@ -43,3 +50,4 @@ def common_area(request, common_area_id):
         template_name="common_areas/common_area.html",
         context=context
     )
+    
