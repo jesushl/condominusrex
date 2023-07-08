@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Habitational Area</title>
+{% extends "common_areas/base.html" %}
 
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
+{% block title %}
+{% endblock %}
+
+{% block body %}
 <body>
     {% if habitational_area %}
         <h1>
@@ -22,5 +19,4 @@
             {% endfor %}
         {% endif %}
     {% endif %}
-</body>
-</html>
+{% endblock  %}

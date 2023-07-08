@@ -29,7 +29,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'common_area:reserve' common_area.id %}">
+                <form action="{% url 'common_area:reserve' common_area.id %}" method="post">
+                    
             </div>
             <div class="modal-footer">
                 <button 
