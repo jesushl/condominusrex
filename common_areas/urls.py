@@ -14,4 +14,10 @@ urlpatterns = [
         view=views.habitational_area,
         name="habitational_area"
     ),
-]
+
+    path(
+        "reserve_common_area",
+        view= views.reserve_common_area,
+        name="reserve_common_area"
+    ),
+]   

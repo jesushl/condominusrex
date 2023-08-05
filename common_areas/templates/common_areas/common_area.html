@@ -14,6 +14,26 @@
     {{ common_area.habitational_area.name }}
  </a>
  <br>
-    <label for="startDate">Elige una fecha </label>
-    <input id="startDate" class="form-control" type="date" />
+    <form action="{% url 'reserve_common_area' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+        <label for="reservation_date">Elige una fecha </label>
+        <input 
+            id="reservation_date" 
+            name="reservation_date"
+            class="form-control" 
+            type="date"  
+            min={{ today }} 
+            max={{ one_year_in_future }}
+        />
+        </input>
+        </fieldset>
+        <input type="submit", value="Reservar">
+    </form>
+{% endblock %}
+{% block footer %}
+<script>
+    const calendar = document.getElementById("calendar");
+    console.log(calendar.attributes);
+</script>
 {% endblock %}
