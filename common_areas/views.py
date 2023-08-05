@@ -69,8 +69,13 @@ def reserve_common_area(request):
     else:
         reservation_form = CommonAreaReservationForm()
         # import pdb; pdb.set_trace()
+        today = date.today().strftime(_FORM_DATE_FORMAT)
+        one_year = (datetime.utcnow() + timedelta(days=365)).strftime(_FORM_DATE_FORMAT)
+        context = {"min": today}
+        context.update({ "max": one_year})
+        context.update({"reservation_form": reservation_form})
         return render(
             request, 
             "common_areas/reserve_common_area.html", 
-            {"reservation_form": reservation_form}
+            context
         )
